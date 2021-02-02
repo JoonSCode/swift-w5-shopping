@@ -16,8 +16,6 @@ class MainViewController: UIViewController {
         shoppingCollectionView.delegate = productCollectionView
         shoppingCollectionView.dataSource = productCollectionView
 
-        let urls = ["http://public.codesquad.kr/jk/kakao-2021/best.json", "http://public.codesquad.kr/jk/kakao-2021/mask.json", "http://public.codesquad.kr/jk/kakao-2021/grocery.json", "http://public.codesquad.kr/jk/kakao-2021/flyingpan.json"]
-
-        NetworkHandler.getData(resource: urls[0])
+        NetworkHandler.getData(productType: .Best)
     }
 }
