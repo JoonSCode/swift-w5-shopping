@@ -44,11 +44,14 @@ class DetailViewController: UIViewController {
             imageView.translatesAutoresizingMaskIntoConstraints = false
             imageView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
             imageView.heightAnchor.constraint(equalTo: imageScrollView.frameLayoutGuide.heightAnchor).isActive = true
+//            imageView.heightAnchor.constraint(equalToConstant: view.bounds.width * 0.75).isActive = true
             imageView.topAnchor.constraint(equalTo: imageScrollView.contentLayoutGuide.topAnchor).isActive = true
             imageView.leadingAnchor.constraint(equalTo: index == 0 ? imageScrollView.contentLayoutGuide.leadingAnchor : imageViews[index - 1].trailingAnchor).isActive = true
+//            imageView.contentMode = .scaleAspectFit
             imageView.setImageByUrl(url: imageUrls[index])
         }
         imageViews[0].leadingAnchor.constraint(equalTo: imageScrollView.contentLayoutGuide.leadingAnchor).isActive = true
+//        imageViews[imageViews.count - 1].trailingAnchor.constraint(equalTo: imageScrollView.contentLayoutGuide.trailingAnchor).isActive = true
         imageScrollView.contentSize = CGSize(width: view.bounds.width * CGFloat(imageViews.count), height: view.bounds.width * 0.75)
     }
 
@@ -57,11 +60,6 @@ class DetailViewController: UIViewController {
 
         guard let descriptionHtml = productDetailManager?.productDetail?.description else { return }
         webView.loadHTMLString(meta_java + descriptionHtml, baseURL: nil)
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        webView = nil
     }
 }
 

@@ -172,11 +172,11 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="p8s-qt-vKP">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="1444.3333333333333"/>
                                         <subviews>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWn-R6-oNj" userLabel="Image Scroll View">
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hWn-R6-oNj" userLabel="Image Scroll View">
                                                 <rect key="frame" x="0.0" y="0.0" width="390" height="292.66666666666669"/>
                                                 <subviews>
                                                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NKN-WR-7fw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="390.33333333333331" height="292.66666666666669"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="390" height="292.66666666666669"/>
                                                         <color key="backgroundColor" red="1" green="0.92922047969999999" blue="0.16185525479999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="NKN-WR-7fw" secondAttribute="height" multiplier="4:3" id="VUq-qb-fkJ"/>
@@ -188,6 +188,7 @@
                                                     <constraint firstItem="NKN-WR-7fw" firstAttribute="bottom" secondItem="t4P-Pq-Nrw" secondAttribute="bottom" id="Cax-vx-GYW"/>
                                                     <constraint firstItem="NKN-WR-7fw" firstAttribute="leading" secondItem="t4P-Pq-Nrw" secondAttribute="leading" id="Teo-Lh-7FU"/>
                                                     <constraint firstItem="NKN-WR-7fw" firstAttribute="height" secondItem="CDm-Jr-lSp" secondAttribute="height" id="WAL-kq-vxH"/>
+                                                    <constraint firstAttribute="width" secondItem="hWn-R6-oNj" secondAttribute="height" multiplier="4:3" id="ZuK-Ub-jc5"/>
                                                     <constraint firstItem="NKN-WR-7fw" firstAttribute="trailing" secondItem="t4P-Pq-Nrw" secondAttribute="trailing" id="yhl-9N-7Xk"/>
                                                 </constraints>
                                                 <viewLayoutGuide key="contentLayoutGuide" id="t4P-Pq-Nrw"/>
@@ -204,14 +205,14 @@
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Bs5-gR-SQK">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Bs5-gR-SQK">
                                                 <rect key="frame" x="0.0" y="362.66666666666669" width="390" height="128"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Li-2s-lAW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="194.66666666666666" height="128"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="390" height="128"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zz1-Hl-Pdl">
-                                                                <rect key="frame" x="0.0" y="-0.66666666666668561" width="136.33333333333334" height="128.66666666666666"/>
+                                                                <rect key="frame" x="0.0" y="-0.66666666666668561" width="273" height="128.66666666666666"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <state key="normal" title="바로구매">
@@ -227,11 +228,11 @@
                                                             <constraint firstAttribute="bottom" secondItem="Zz1-Hl-Pdl" secondAttribute="bottom" id="pX7-aq-p2o"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JLS-a3-tzP">
-                                                        <rect key="frame" x="194.66666666666663" y="0.0" width="195.33333333333337" height="128"/>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JLS-a3-tzP">
+                                                        <rect key="frame" x="390" y="0.0" width="0.0" height="128"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vht-GD-CTZ">
-                                                                <rect key="frame" x="58.666666666666686" y="0.0" width="136.66666666666666" height="128"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="128"/>
                                                                 <color key="backgroundColor" red="1" green="0.87785291219999995" blue="0.1569414502" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <state key="normal" title="톡딜가">
                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -317,6 +318,7 @@
                             <constraint firstItem="ccq-UA-cf1" firstAttribute="bottom" secondItem="I2O-I6-g7U" secondAttribute="bottom" id="Whd-x7-Hqp"/>
                             <constraint firstItem="I2O-I6-g7U" firstAttribute="trailing" secondItem="ccq-UA-cf1" secondAttribute="trailing" id="Xpk-Y5-ahA"/>
                             <constraint firstItem="ccq-UA-cf1" firstAttribute="leading" secondItem="I2O-I6-g7U" secondAttribute="leading" id="eaS-NU-VIG"/>
+                            <constraint firstItem="hWn-R6-oNj" firstAttribute="width" secondItem="I2O-I6-g7U" secondAttribute="width" id="maF-F3-3fz"/>
                         </constraints>
                         <connections>
                             <outlet property="deliveryFee" destination="Jnb-5r-Abt" id="MpI-r8-COC"/>

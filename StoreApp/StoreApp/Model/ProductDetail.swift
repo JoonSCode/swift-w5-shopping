@@ -57,6 +57,6 @@ struct ProductDetail: Decodable {
 
     struct Notice: Decodable {
         var title: String
-        var createAt: String
+        var createdAt: String
     }
 }

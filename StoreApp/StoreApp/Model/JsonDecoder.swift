@@ -22,6 +22,7 @@ class JsonDecoder {
     func parseDataToDetail(data: Data) -> ProductDetail? {
         let decoder = JSONDecoder()
         var decodeData: ProductDetailJson?
+        print(String(decoding: data, as: UTF8.self))
         do {
             decodeData = try decoder.decode(ProductDetailJson.self, from: data)
         }catch {
