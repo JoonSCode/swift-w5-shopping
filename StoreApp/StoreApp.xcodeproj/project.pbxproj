@@ -30,6 +30,7 @@
 		F7E9B50725CB95EF0042C82F /* ProductCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E9B50625CB95EF0042C82F /* ProductCollectionView.swift */; };
 		F7E9B51925CD3FF30042C82F /* DetailMainSrcollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E9B51825CD3FF30042C82F /* DetailMainSrcollView.swift */; };
 		F7E9B51D25CD49070042C82F /* ProductDetailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E9B51C25CD49070042C82F /* ProductDetailManager.swift */; };
+		F7E9B53425D0FD410042C82F /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E9B53325D0FD410042C82F /* ImageScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		F7E9B50625CB95EF0042C82F /* ProductCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionView.swift; sourceTree = "<group>"; };
 		F7E9B51825CD3FF30042C82F /* DetailMainSrcollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMainSrcollView.swift; sourceTree = "<group>"; };
 		F7E9B51C25CD49070042C82F /* ProductDetailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailManager.swift; sourceTree = "<group>"; };
+		F7E9B53325D0FD410042C82F /* ImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				F704D05025C7ECF900E82AB5 /* ProductCell.swift */,
 				F7E9B50625CB95EF0042C82F /* ProductCollectionView.swift */,
 				F7E9B51825CD3FF30042C82F /* DetailMainSrcollView.swift */,
+				F7E9B53325D0FD410042C82F /* ImageScrollView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				F7E9B4F125CB89D90042C82F /* UIImageView+.swift in Sources */,
 				F704D07725C7FFE300E82AB5 /* Product.swift in Sources */,
 				F704D0A025C919FB00E82AB5 /* ProductManagerImpl.swift in Sources */,
+				F7E9B53425D0FD410042C82F /* ImageScrollView.swift in Sources */,
 				F7E9B51D25CD49070042C82F /* ProductDetailManager.swift in Sources */,
 				F71FD48E25C7905500E826A5 /* MainViewController.swift in Sources */,
 				F71FD48A25C7905500E826A5 /* AppDelegate.swift in Sources */,

@@ -33,6 +33,7 @@ struct ProductDetail: Decodable {
         var discountPrice: Int
         enum Status: String, Decodable {
             case ON_SALE
+            case AFTER_SALE
         }
     }
 

@@ -16,11 +16,11 @@ class ProductDetailManager {
 
     private init() {}
 
-    public func getProductDetail(storeDomain: String, productId: Int, productTitle: String) {
-        NetworkHandler.getData(storeDomain: storeDomain, productId: productId) { data in
+    public func getProductDetail(product: Product) {
+        NetworkHandler.getData(storeDomain: product.storeDomain, productId: product.productId) { data in
             let decoder = JsonDecoder()
             self.productDetail = decoder.parseDataToDetail(data: data)
-            self.productDetail?.title = productTitle
+            self.productDetail?.title = product.title
             NotificationCenter.default.post(name: .getProductDetailFinished, object: nil)
         }
     }

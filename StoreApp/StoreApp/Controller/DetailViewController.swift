@@ -16,10 +16,21 @@ class DetailViewController: UIViewController {
     var imageViews: [UIImageView] = []
     @IBOutlet var webView: WKWebView!
     var productDetailManager: ProductDetailManager?
+    var product: Product?
+    var timer: Timer?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(setViewData(_:)), name: .getProductDetailFinished, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(enableAutoScroll(_:)), name: .enableAutoScroll, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(disableAutoScroll(_:)), name: .disableAutoScroll, object: nil)
+
         detailMainView.initView()
+        
+        guard let product = product else {
+            return
+        }
+        productDetailManager?.getProductDetail(product: product)
     }
 
     @objc func setViewData(_: Notification) {
@@ -42,17 +53,32 @@ class DetailViewController: UIViewController {
             imageViews.append(imageView)
             imageScrollView.addSubview(imageView)
             imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.contentMode = .scaleAspectFit
             imageView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
             imageView.heightAnchor.constraint(equalTo: imageScrollView.frameLayoutGuide.heightAnchor).isActive = true
-//            imageView.heightAnchor.constraint(equalToConstant: view.bounds.width * 0.75).isActive = true
             imageView.topAnchor.constraint(equalTo: imageScrollView.contentLayoutGuide.topAnchor).isActive = true
             imageView.leadingAnchor.constraint(equalTo: index == 0 ? imageScrollView.contentLayoutGuide.leadingAnchor : imageViews[index - 1].trailingAnchor).isActive = true
-//            imageView.contentMode = .scaleAspectFit
             imageView.setImageByUrl(url: imageUrls[index])
         }
         imageViews[0].leadingAnchor.constraint(equalTo: imageScrollView.contentLayoutGuide.leadingAnchor).isActive = true
-//        imageViews[imageViews.count - 1].trailingAnchor.constraint(equalTo: imageScrollView.contentLayoutGuide.trailingAnchor).isActive = true
         imageScrollView.contentSize = CGSize(width: view.bounds.width * CGFloat(imageViews.count), height: view.bounds.width * 0.75)
+        timer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(animateScrollView), userInfo: nil, repeats: true)
+    }
+
+    @objc func enableAutoScroll(_ notification: Notification) {
+        timer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(animateScrollView), userInfo: nil, repeats: true)
+    }
+    
+    @objc func disableAutoScroll(_ notification: Notification) {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    @objc func animateScrollView() {
+        imageScrollView.contentOffset.x += imageScrollView.bounds.width
+        if imageScrollView.contentOffset.x == imageScrollView.bounds.width * CGFloat(imageViews.count) {
+            imageScrollView.contentOffset.x = 0
+        }
     }
 
     func loadDescription() {

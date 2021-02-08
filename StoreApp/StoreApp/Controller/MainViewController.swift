@@ -41,6 +41,6 @@ class MainViewController: UIViewController {
         guard let detailViewController = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
         navigationController?.pushViewController(detailViewController, animated: true)
         detailViewController.productDetailManager = productDetailManager
-        productDetailManager.getProductDetail(storeDomain: product.storeDomain, productId: product.productId, productTitle: product.title)
+        detailViewController.product = product
     }
 }

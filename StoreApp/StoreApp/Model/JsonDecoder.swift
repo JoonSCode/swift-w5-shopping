@@ -11,6 +11,7 @@ class JsonDecoder {
     func parseDataToProducts(data: Data) -> [Product]? {
         let decoder = JSONDecoder()
         var decodeData: [Product]?
+        print(String(decoding: data, as: UTF8.self))
         do {
             decodeData = try decoder.decode([Product].self, from: data)
         }catch {
