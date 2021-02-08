@@ -27,33 +27,47 @@ class DetailMainView: UIView {
     }
     
     func setViewData(productDetail: ProductDetail) {
-        var reviewText = ""
-        let numOfStar = Int(productDetail.review.totalProductStarRating)
-        for _  in 0..<numOfStar{
-            reviewText += "★"
-        }
-        reviewText += " 리뷰\(productDetail.review.reviewCount)건"
-        starRate.text = reviewText
-        
-        purchaseOriginal.setTitle("바로구매 \(productDetail.price.standardPrice)원", for: .normal)
-        
-        if productDetail.talkDeal?.status == .ON_SALE {
-            purchaseDiscount.superview?.isHidden = false
-            purchaseDiscount.setTitle("톡딜가 \(productDetail.price.standardPrice - (productDetail.talkDeal?.discountPrice ?? 0))원",for: .normal)
-        }
-        
+        setReviewCount(review: productDetail.review)
+        setPrice(productDetail: productDetail)
+       
         productTitle.text = productDetail.title
+        setDeliveryFee(delivery: productDetail.delivery)
         
-        if productDetail.delivery.deliveryFeeType == .FREE {
-            deliveryFee.text = "배송비 무료"
-        }else{
-            deliveryFee.text = "배송비 \(productDetail.delivery.deliveryFee)원"
+        if productDetail.notices.count == 0 {
+            noticeTitle.superview?.isHidden = true
         }
         
         for notice in productDetail.notices {
-            print("1111111")
             noticeTitle.text = notice.title
             noticeDate.text = notice.createdAt
+        }
+    }
+    func setReviewCount(review: ProductDetail.Review) {
+        var reviewText = ""
+        let numOfStar = Int(review.totalProductStarRating)
+        for _  in 0..<numOfStar{
+            reviewText += "★"
+        }
+        reviewText += " 리뷰\(review.reviewCount)건"
+        starRate.text = reviewText
+    }
+    
+    func setPrice(productDetail: ProductDetail){
+        purchaseOriginal.setTitle("바로구매 \(productDetail.price.standardPrice)원", for: .normal)
+        purchaseOriginal.layer.cornerRadius = 10
+        purchaseOriginal.bounds = purchaseOriginal.titleLabel?.frame ?? purchaseOriginal.bounds
+        if productDetail.talkDeal?.status == .ON_SALE {
+            purchaseDiscount.isHidden = false
+            purchaseDiscount.setTitle("톡딜가 \(productDetail.price.standardPrice - (productDetail.talkDeal?.discountPrice ?? 0))원",for: .normal)
+            purchaseDiscount.layer.cornerRadius = 10
+        }
+    }
+    
+    func setDeliveryFee(delivery: ProductDetail.Delivery){
+        if delivery.deliveryFeeType == .FREE {
+            deliveryFee.text = "배송비 무료"
+        }else{
+            deliveryFee.text = "배송비 \(delivery.deliveryFee)원"
         }
     }
 }
