@@ -20,7 +20,6 @@ class MainViewController: UIViewController {
         productCollectionView.productManager = productManager
         shoppingCollectionView.delegate = productCollectionView
         shoppingCollectionView.dataSource = productCollectionView
-
         NotificationCenter.default.addObserver(self, selector: #selector(reloadSection(_:)), name: NSNotification.Name("reloadSection"), object: nil)
     }
 

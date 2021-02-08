@@ -15,6 +15,7 @@ class DetailMainView: UIView {
     @IBOutlet weak var productTitle: UILabel!
     @IBOutlet weak var purchaseOriginal: UIButton!
     @IBOutlet weak var purchaseDiscount: UIButton!
+    @IBOutlet weak var shopTitle: UILabel!
     @IBOutlet weak var numberOfParticipant: UILabel!
     @IBOutlet weak var deliveryFee: UILabel!
     @IBOutlet weak var noticeTitle: UILabel!
@@ -29,7 +30,7 @@ class DetailMainView: UIView {
     func setViewData(productDetail: ProductDetail) {
         setReviewCount(review: productDetail.review)
         setPrice(productDetail: productDetail)
-       
+        shopTitle.text = productDetail.store.name
         productTitle.text = productDetail.title
         setDeliveryFee(delivery: productDetail.delivery)
         

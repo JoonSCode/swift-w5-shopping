@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -206,7 +205,7 @@
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="center" distribution="fillProportionally" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Bs5-gR-SQK">
+                                            <stackView opaque="NO" contentMode="center" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Bs5-gR-SQK">
                                                 <rect key="frame" x="0.0" y="362.66666666666669" width="390" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zz1-Hl-Pdl">
@@ -307,6 +306,7 @@
                             <outlet property="productTitle" destination="6vc-vD-0AW" id="hWf-bX-NmK"/>
                             <outlet property="purchaseDiscount" destination="vht-GD-CTZ" id="x0r-Ly-uLb"/>
                             <outlet property="purchaseOriginal" destination="Zz1-Hl-Pdl" id="fYH-jy-JmB"/>
+                            <outlet property="shopTitle" destination="EXC-AS-m8n" id="m9q-8J-4Gw"/>
                             <outlet property="starRate" destination="6Lf-hf-eFd" id="U4B-MI-rXT"/>
                             <outlet property="webView" destination="fge-64-8B3" id="5rr-ru-Jib"/>
                         </connections>

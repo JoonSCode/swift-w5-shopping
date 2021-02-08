@@ -15,6 +15,7 @@ class DetailViewController: UIViewController {
     @IBOutlet var imageScrollView: UIScrollView!
     var imageViews: [UIImageView] = []
     @IBOutlet var webView: WKWebView!
+
     var productDetailManager: ProductDetailManager?
     var product: Product?
     var timer: Timer?
