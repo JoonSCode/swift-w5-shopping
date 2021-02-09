@@ -10,7 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    let productManger = ProductManagerImpl.instance
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
@@ -20,6 +20,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
+        if let products = UserDefaults.standard.object(forKey: "products") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedProducts = try? decoder.decode([ProductType: [Product]].self, from: products) {
+                productManger.setAllData(products: loadedProducts)
+            }
+        }
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
@@ -29,6 +35,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(productManger.getAllData()) {
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey: "products")
+        }
     }
 
 

@@ -13,6 +13,8 @@ protocol ProductManager {
     func setProducts(productType: ProductType, products: [Product])
     func getProduct(productType: ProductType, at: Int) -> Product?
     func getCount(productType: ProductType) -> Int
+    func getAllData() -> [ProductType: [Product]]
+    func setAllData(products: [ProductType: [Product]])
 }
 
 class ProductManagerImpl: ProductManager {
@@ -21,9 +23,7 @@ class ProductManagerImpl: ProductManager {
     private var products: [ProductType: [Product]] = [:]
 
     private init() {
-        for type in ProductType.allCases {
-            products[type] = []
-        }
+        if products.count != 0 { return }
         requestAllData()
     }
 
@@ -56,9 +56,17 @@ class ProductManagerImpl: ProductManager {
     func getCount(productType: ProductType) -> Int {
         return products[productType]?.count ?? 0
     }
+    
+    func getAllData() -> [ProductType : [Product]] {
+        return products
+    }
+    
+    func setAllData(products: [ProductType : [Product]]) {
+        self.products = products
+    }
 }
 
-enum ProductType: Int, CaseIterable {
+enum ProductType: Int, CaseIterable, Codable {
     case Best = 0
     case Mask
     case Grocery
