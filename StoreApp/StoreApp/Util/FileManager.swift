@@ -12,9 +12,7 @@ class MyFileManager: FileManager, ImageManaging {
         guard let localURL = urls(for: .cachesDirectory, in: .userDomainMask).first else { return nil }
         var filePath = URL(fileURLWithPath: localURL.path)
         filePath.appendPathComponent(imageUrl.lastPathComponent)
-        guard fileExists(atPath: filePath.path) else {
-            return nil
-        }
+        guard fileExists(atPath: filePath.path) else { return nil }
         return try? Data(contentsOf: imageUrl)
     }
 
@@ -28,7 +26,6 @@ class MyFileManager: FileManager, ImageManaging {
             print("error writing file \(imageUrl)")
         }
     }
-
 }
 
 protocol ImageManaging {
