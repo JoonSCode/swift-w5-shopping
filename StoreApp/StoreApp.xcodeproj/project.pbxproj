@@ -125,8 +125,6 @@
 		F704D04325C7953800E82AB5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F704D07A25C8023A00E82AB5 /* JsonDecoder.swift */,
-				F704D06E25C7FCB500E82AB5 /* NetworkHandler.swift */,
 				F704D07625C7FFE300E82AB5 /* Product.swift */,
 				F704D09F25C919FB00E82AB5 /* ProductManagerImpl.swift */,
 				F7E9B4F625CB8F750042C82F /* ProductDetail.swift */,
@@ -169,8 +167,10 @@
 		F704D0C425CA369300E82AB5 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				F704D07A25C8023A00E82AB5 /* JsonDecoder.swift */,
 				F704D0D125CA630300E82AB5 /* FileManager.swift */,
 				F7E9B53725D24BF70042C82F /* Converter.swift */,
+				F704D06E25C7FCB500E82AB5 /* NetworkHandler.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
