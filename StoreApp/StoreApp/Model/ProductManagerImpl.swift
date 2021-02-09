@@ -13,8 +13,8 @@ protocol ProductManager {
     func setProducts(productType: ProductType, products: [Product])
     func getProduct(productType: ProductType, at: Int) -> Product?
     func getCount(productType: ProductType) -> Int
-    func getAllData() -> [ProductType: [Product]]
-    func setAllData(products: [ProductType: [Product]])
+    func saveProductAtUserDefault()
+    func setProductFromUserDefault() -> Bool
 }
 
 class ProductManagerImpl: ProductManager {
@@ -23,8 +23,10 @@ class ProductManagerImpl: ProductManager {
     private var products: [ProductType: [Product]] = [:]
 
     private init() {
-        if products.count != 0 { return }
-        requestAllData()
+        if !setProductFromUserDefault() {
+            requestAllData()
+            saveProductAtUserDefault()
+        }
     }
 
     func requestAllData() {
@@ -56,13 +58,21 @@ class ProductManagerImpl: ProductManager {
     func getCount(productType: ProductType) -> Int {
         return products[productType]?.count ?? 0
     }
-    
-    func getAllData() -> [ProductType : [Product]] {
-        return products
+
+    internal func saveProductAtUserDefault() {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(products) {
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey: "products")
+        }
     }
-    
-    func setAllData(products: [ProductType : [Product]]) {
-        self.products = products
+
+    internal func setProductFromUserDefault() -> Bool {
+        guard let products = UserDefaults.standard.object(forKey: "products") as? Data else { return false }
+        let decoder = JSONDecoder()
+        guard let loadedProducts = try? decoder.decode([ProductType: [Product]].self, from: products) else { return false }
+        self.products = loadedProducts
+        return true
     }
 }
 
