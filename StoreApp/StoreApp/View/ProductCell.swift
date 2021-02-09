@@ -17,8 +17,8 @@ class ProductCell: UICollectionViewCell {
     func setCell(product: Product) {
         title.text = product.title
         price.text = "톡딜가"
-        discountedPrice.text = product.discountedPrice
-        originalPrice.text = String(product.originalPrice)
+        discountedPrice.text = "\(Converter.numberToStringWithComma(number: product.groupDiscountedPrice ?? 0) ?? "")원"
+        originalPrice.text = "\(Converter.numberToStringWithComma(number: product.originalPrice) ?? "")원"
         participant.text = product.participant
         image.setImageByUrl(url: product.productImage)
     }

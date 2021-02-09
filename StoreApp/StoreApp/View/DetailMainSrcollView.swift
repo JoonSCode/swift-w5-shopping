@@ -54,12 +54,13 @@ class DetailMainView: UIView {
     }
     
     func setPrice(productDetail: ProductDetail){
-        purchaseOriginal.setTitle("바로구매 \(productDetail.price.standardPrice)원", for: .normal)
+        purchaseOriginal.setTitle("바로구매 \(Converter.numberToStringWithComma(number: productDetail.price.standardPrice) ?? "")원", for: .normal)
         purchaseOriginal.layer.cornerRadius = 10
         purchaseOriginal.bounds = purchaseOriginal.titleLabel?.frame ?? purchaseOriginal.bounds
         if productDetail.talkDeal?.status == .ON_SALE {
             purchaseDiscount.isHidden = false
-            purchaseDiscount.setTitle("톡딜가 \(productDetail.price.standardPrice - (productDetail.talkDeal?.discountPrice ?? 0))원",for: .normal)
+            let dicountedPrice = productDetail.price.standardPrice - (productDetail.talkDeal?.discountPrice ?? 0)
+            purchaseDiscount.setTitle("톡딜가 \(Converter.numberToStringWithComma(number: dicountedPrice) ?? "")원",for: .normal)
             purchaseDiscount.layer.cornerRadius = 10
         }
     }

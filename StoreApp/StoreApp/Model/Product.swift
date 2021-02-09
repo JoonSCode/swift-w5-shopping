@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Product: Decodable {
+struct Product: Codable {
     var storeDomain, productName: String
     var productImage: URL
     var productId: Int // UUID 가능?
@@ -17,11 +17,6 @@ struct Product: Decodable {
 
     var title: String {
         return productName
-    }
-
-    var discountedPrice: String {
-        guard let discountedPrice = groupDiscountedPrice else { return "" }
-        return String(discountedPrice)
     }
 
     var participant: String {

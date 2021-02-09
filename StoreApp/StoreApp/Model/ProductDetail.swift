@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct ProductDetailJson: Decodable {
+struct ProductDetailJson: Codable {
     var result: Bool
     var data: ProductDetail
 }
 
-struct ProductDetail: Decodable {
+struct ProductDetail: Codable {
     var title: String?
     var previewImages: [URL]
     var description: String
@@ -23,40 +23,40 @@ struct ProductDetail: Decodable {
     var price: Price
     var notices: [Notice]
 
-    struct Review: Decodable {
+    struct Review: Codable {
         var totalProductStarRating: Double
         var reviewCount: Int
     }
 
-    struct TalkDeal: Decodable {
+    struct TalkDeal: Codable {
         var status: Status
         var discountPrice: Int
-        enum Status: String, Decodable {
+        enum Status: String, Codable {
             case ON_SALE
             case AFTER_SALE
         }
     }
 
-    struct Store: Decodable {
+    struct Store: Codable {
         var name: String
     }
 
-    struct Price: Decodable {
+    struct Price: Codable {
         var standardPrice, discountedPrice, minDiscountedPrice, maxDiscountedPrice: Int
         var discountRate: String
     }
 
-    struct Delivery: Decodable {
+    struct Delivery: Codable {
         var deliveryFeeType: DeliveryFeeType
         var deliveryFee: Int
 
-        enum DeliveryFeeType: String, Decodable {
+        enum DeliveryFeeType: String, Codable {
             case FREE
             case PAID
         }
     }
 
-    struct Notice: Decodable {
+    struct Notice: Codable {
         var title: String
         var createdAt: String
     }

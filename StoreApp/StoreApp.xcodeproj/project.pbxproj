@@ -31,6 +31,7 @@
 		F7E9B51925CD3FF30042C82F /* DetailMainSrcollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E9B51825CD3FF30042C82F /* DetailMainSrcollView.swift */; };
 		F7E9B51D25CD49070042C82F /* ProductDetailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E9B51C25CD49070042C82F /* ProductDetailManager.swift */; };
 		F7E9B53425D0FD410042C82F /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E9B53325D0FD410042C82F /* ImageScrollView.swift */; };
+		F7E9B53825D24BF70042C82F /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E9B53725D24BF70042C82F /* Converter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		F7E9B51825CD3FF30042C82F /* DetailMainSrcollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMainSrcollView.swift; sourceTree = "<group>"; };
 		F7E9B51C25CD49070042C82F /* ProductDetailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailManager.swift; sourceTree = "<group>"; };
 		F7E9B53325D0FD410042C82F /* ImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
+		F7E9B53725D24BF70042C82F /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				F704D0D125CA630300E82AB5 /* FileManager.swift */,
+				F7E9B53725D24BF70042C82F /* Converter.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7E9B53825D24BF70042C82F /* Converter.swift in Sources */,
 				F7E9B4F125CB89D90042C82F /* UIImageView+.swift in Sources */,
 				F704D07725C7FFE300E82AB5 /* Product.swift in Sources */,
 				F704D0A025C919FB00E82AB5 /* ProductManagerImpl.swift in Sources */,
