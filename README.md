@@ -44,3 +44,7 @@
 
 ### 2021.02.05
 1. 상세화면 스크롤, 이미지 스크롤,  웹뷰 구현
+
+
+<div>
+<img width: 200 src = "https://user-images.githubusercontent.com/45382324/107893350-fe177280-6f6d-11eb-8453-f92c6ef11c99.png"></div>
