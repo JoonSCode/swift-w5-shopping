@@ -60,6 +60,7 @@ class ProductManagerImpl: ProductManager {
     }
 
     internal func saveProductAtUserDefault() {
+        if products.isEmpty { return }
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(products) {
             let defaults = UserDefaults.standard
@@ -71,6 +72,7 @@ class ProductManagerImpl: ProductManager {
         guard let products = UserDefaults.standard.object(forKey: "products") as? Data else { return false }
         let decoder = JSONDecoder()
         guard let loadedProducts = try? decoder.decode([ProductType: [Product]].self, from: products) else { return false }
+        if loadedProducts.isEmpty { return false }
         self.products = loadedProducts
         return true
     }

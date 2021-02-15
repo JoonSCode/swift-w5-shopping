@@ -11,16 +11,22 @@ import UIKit
 class MainViewController: UIViewController {
     @IBOutlet var shoppingCollectionView: UICollectionView!
     private let productManager = ProductManagerImpl.instance
-    lazy var productCollectionView = ProductCollcetionViewUsecase(productManager: productManager)
+    lazy var productCollectionViewUseCase = ProductCollcetionViewUsecase(productManager: productManager)
     private let productDetailManager = ProductDetailManager.instance
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        productCollectionView.calculateSize(width: nil)
-        productCollectionView.productManager = productManager
-        shoppingCollectionView.delegate = productCollectionView
-        shoppingCollectionView.dataSource = productCollectionView
+        productCollectionViewUseCase.calculateSize(width: nil)
+        productCollectionViewUseCase.productManager = productManager
+        shoppingCollectionView.delegate = productCollectionViewUseCase
+        shoppingCollectionView.dataSource = productCollectionViewUseCase
         NotificationCenter.default.addObserver(self, selector: #selector(reloadSection(_:)), name: NSNotification.Name("reloadSection"), object: nil)
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        productCollectionViewUseCase.calculateSize(width: size.width)
+        shoppingCollectionView.reloadData()
     }
 
     @objc func reloadSection(_ noticiation: Notification) {
